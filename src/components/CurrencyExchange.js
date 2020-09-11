@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
+import'./CurrencyExchange.css';
 
 const CurrencyExhange = () => {
 
@@ -41,14 +42,14 @@ const CurrencyExhange = () => {
     }
 
     return <div>
-        <Grid container spacing={3} >
-            <Grid item xs={12} sm={10}>
+        <Grid container spacing={5} >
+            <Grid item xs={6} sm={10}>
                 <Paper>
                     <TextField id="standard-basic" label="Select currency to convert from" value={currencyFrom} readOnly={true}/>
                     <TextField id="standard-basic" label="Enter the amount to convert" value={quantity} onChange={_handleTextFieldChange}/>
                 </Paper>
             </Grid>
-            <Grid item xs={12} sm={10}>
+            <Grid item xs={6} sm={10}>
                 <Paper>
                     <FormControl variant="filled">
                         <TextField
@@ -67,21 +68,21 @@ const CurrencyExhange = () => {
                     </FormControl>
                 </Paper>
             </Grid>
-        </Grid>
-        <div>
-        </div>
-        <div>
-            <Button variant="outlined" color="primary" size={"large"} onClick={() => {handleClick(currencyFrom, currencyTo, quantity)}}>
-                Convert
-            </Button>
-        </div>
-        <div>
             <Grid item xs={12} sm={10}>
                 <Paper>
-                    <TextField id="standard-basic" label="Result" value={result} readOnly={true}/>
+                    <div>
+                        <Button variant="outlined" color="primary" size={"large"} onClick={() => {handleClick(currencyFrom, currencyTo, quantity)}}>
+                            Convert
+                        </Button>
+                    </div>
                 </Paper>
             </Grid>
-        </div>
+        <Grid item xs={12} sm={10}>
+            <Paper>
+                <TextField id="standard-basic" label="Result" value={result} readOnly={true}/>
+            </Paper>
+        </Grid>
+        </Grid>
     </div>;
 }
 
